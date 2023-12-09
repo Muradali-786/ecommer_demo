@@ -7,6 +7,42 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: Image.asset('assets/images/Side Tabs.png'),
+        title: GradientAppBarTitle('smart_store'),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.bottomRight,
+              end: Alignment.topLeft,
+              colors: [Color(0xffFFD700), Color(0xffFDBB12)],
+            ),
+          ),
+        ),
+        toolbarHeight: 58.0,
+        actions: [
+          Container(
+            width: 44,
+            height: 38,
+            decoration: BoxDecoration(
+                color: Color(0xffF6F6F6),
+                borderRadius: BorderRadius.circular(5)
+            ),
+            child: Image.asset('assets/images/Message Icon.png'),
+          ),
+          SizedBox(width: 10,),
+          Container(
+            width: 44,
+            height: 38,
+            decoration: BoxDecoration(
+                color: Color(0xffF6F6F6),
+                borderRadius: BorderRadius.circular(5)
+            ),
+            child: Image.asset('assets/images/notification bell.png'),
+          ),
+          SizedBox(width: 20,),
+        ],// Set the height of the app bar
+      ),
 
       body: SafeArea(
         child: SingleChildScrollView(
@@ -376,7 +412,33 @@ class MyCustom extends StatelessWidget {
               ],
             ),
           )
+
+
         ],
+      ),
+    );
+  }
+}
+
+
+class GradientAppBarTitle extends StatelessWidget {
+  final String title;
+
+  GradientAppBarTitle(this.title);
+
+  @override
+  Widget build(BuildContext context) {
+    return ShaderMask(
+      shaderCallback: (Rect bounds) {
+        return LinearGradient(
+          colors: [Color(0xff0707B4), Color(0xff020242)],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ).createShader(bounds);
+      },
+      child: Text(
+        title,style: AppStyle().lato(
+          14, const Color(0xffFFD700), FontWeight.w500),
       ),
     );
   }

@@ -1,6 +1,8 @@
 import 'package:dem_screen/home_page.dart';
 import 'package:flutter/material.dart';
 
+import 'NavBar.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue
       ),
-      home: HomePage(),
+      home: NavBar(),
     );
   }
 }
